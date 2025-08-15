@@ -5,7 +5,7 @@ To follow along with this guide, you’ll need the following:
 - This **WorkshopUploader** Plugin
 - My custom fork of **SimpleUGC** plugin ([UE4 version](https://github.com/randomperson189/UGCExample/tree/release-ue4-custom) and [UE5 version](https://github.com/randomperson189/UGCExample/tree/release-ue5-custom)), requires linking **Epic Games** account to **GitHub** for access
 - An **Unreal Engine 4** or **5** project with C++ code
-- **Visual Studio** (whichever version your **Unreal** version supports)
+- **Visual Studio** (whichever version your **Unreal** version supports)<br/><br/>
 
 ### Adding the plugins to your project
 
@@ -13,7 +13,7 @@ To follow along with this guide, you’ll need the following:
 2. Open the zip file and extract the **WorkshopUploader-main** folder into your unreal project's **Plugins** folder (if a **Plugins** folder doesn't exist then create one)
 3. In the **Plugins** folder, rename **WorkshopUploader-main** to **WorkshopUploader**
 4. Download my custom fork of **SimpleUGC** as zip from the github page shown in prerequisites section
-5. Open the zip file and navigate to **UGCExample-main\Plugins** and extract **SimpleUGC** into your unreal project's plugins folder
+5. Open the zip file and navigate to **UGCExample-main\Plugins** and extract **SimpleUGC** into your unreal project's plugins folder<br/><br/>
 
 ### Duplicating and modifying OnlineSubsystemSteam plugin to work in editor
 By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialise if you're in editor, but we need to have it enabled in editor so that the **WorkshopUploader** plugin can use the **Steam API** for uploaing. Fortunately there's a solution for that
@@ -33,7 +33,7 @@ By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialis
 		}
 #endif*/
 ```
-9. Set your solution configuration to **Development Editor** and **Win64** then build your project
+9. Set your solution configuration to **Development Editor** and **Win64** then build your project<br/><br/>
 
 ### Setting up OnlineSubsystemSteam in config files (skip if already done)
 
@@ -62,6 +62,7 @@ NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSt
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 
 ```
+
 
 
 
