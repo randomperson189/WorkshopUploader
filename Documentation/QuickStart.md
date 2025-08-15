@@ -3,9 +3,9 @@
 To follow along with this guide, you’ll need the following: 
 - An **Unreal Engine 4** or **5** Steam game with workshop enabled and configured via **Steamworks**
 - This **WorkshopUploader** Plugin
-- My custom fork of **SimpleUGC** plugin ([UE4 version](https://github.com/randomperson189/UGCExample/tree/release-ue4-custom) and [UE5 version](https://github.com/randomperson189/UGCExample/tree/release-ue5-custom))
+- My custom fork of **SimpleUGC** plugin (Requires linking **Epic Games** account to **GitHub** for access ([UE4 version](https://github.com/randomperson189/UGCExample/tree/release-ue4-custom) and [UE5 version](https://github.com/randomperson189/UGCExample/tree/release-ue5-custom)))
 - An **Unreal Engine 4** or **5** project with C++ code
-- **Visual Studio**
+- **Visual Studio** (whichever version your **Unreal** version supports)
 
 ### Adding the plugins to your project
 
@@ -62,6 +62,7 @@ NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSt
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 
 ```
+
 
 
 
