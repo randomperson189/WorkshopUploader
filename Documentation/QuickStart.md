@@ -39,7 +39,8 @@ By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialis
 
 1. Navigate to your project's **Config** folder and open **DefaultEngine.ini**
 2. Paste this at the top of the file and change **SteamDevAppId** from 480 (SpaceWar) to your game's appid
-```[OnlineSubsystem]
+```
+[OnlineSubsystem]
 DefaultPlatformService=Steam
 
 [OnlineSubsystemSteam]
@@ -60,3 +61,4 @@ NetConnectionClassName="OnlineSubsystemSteam.SteamNetConnection"
 NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSteam.SteamNetDriver",DriverClassNameFallback="OnlineSubsystemUtils.IpNetDriver")
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 ```
+
