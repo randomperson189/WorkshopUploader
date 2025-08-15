@@ -16,7 +16,7 @@ To follow along with this guide, you’ll need the following:
 5. Open the zip file and navigate to **UGCExample-main\Plugins** and extract **SimpleUGC** into your unreal project's plugins folder
 
 ### Duplicating and modifying OnlineSubsystemSteam plugin to work in editor
-By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialise if you're in editor, but we need to have it enabled in editor so that the **WorkshopUploader** plugin can use the **Steam API** for uploaing. Fortunately there's a simple and easy solution for that
+By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialise if you're in editor, but we need to have it enabled in editor so that the **WorkshopUploader** plugin can use the **Steam API** for uploaing. Fortunately there's a solution for that
 
 1. Navigate to your base **Unreal Engine** directory (for example: **C:\Program Files\Epic Games\UE_4.27** depending on what engine version your project is using)
 2. Navigate to **Engine\Plugins\Online**
@@ -62,6 +62,7 @@ NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSt
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 
 ```
+
 
 
 
