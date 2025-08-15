@@ -21,8 +21,8 @@ By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialis
 1. Navigate to your base **Unreal Engine** directory (for example: **C:\Program Files\Epic Games\UE_4.27** depending on what engine version your project is using)
 2. Navigate to **Engine\Plugins\Online**
 3. Copy the folder called **OnlineSubsystemSteam** and paste it into your unreal project's plugins folder
-4. Navigate to your project directory and right click your .uproject file and click **Generate project files**
-5. Open your project's .sln file in Visual Studio
+4. Navigate to your project directory and right click your .uproject file and click **Generate Visual Studio project files**
+5. Open your project's .sln file in **Visual Studio**
 6. In the solution explorer within your game's project, navigate to **Plugins\OnlineSubsystemSteam\Source\Private** and open **OnlineSubsystemSteam.cpp**
 7. Scroll down to where it shows **#if UE_EDITOR** (around line 578) and comment this part out so that it now looks like this
 ```
@@ -62,5 +62,6 @@ NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSt
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 
 ```
+
 
 
