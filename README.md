@@ -5,4 +5,4 @@ The **Workshop Uploader** is a custom plugin created to facilitate adding Steam 
 
 <img width="220" height="340" alt="image" src="https://github.com/user-attachments/assets/350297ef-ea9c-4026-865e-0d454b9b04cc" /><br/>
 
-Follow the [**Quick Start Guide**](Documentation/QuickStart.md) for a comprehensive look at the **Workshop Uploader** for instructions to set it up for your own projects.
+Follow the [**Quick Start Guide**](Documentation/QuickStart.md) for instructions on how to set up the **Workshop Uploader** for your own projects.
