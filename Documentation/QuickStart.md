@@ -33,7 +33,7 @@ By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialis
 		}
 #endif*/
 ```
-9. Set your solution configuration to **Development Editor** and **Win64** and build your project
+9. Set your solution configuration to **Development Editor** and **Win64** then build your project
 
 ### Setting up OnlineSubsystemSteam in config files (skip if already done)
 
@@ -62,6 +62,7 @@ NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSt
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 
 ```
+
 
 
 
