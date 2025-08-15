@@ -57,30 +57,30 @@ class FWorkshopUploaderModule : public IModuleInterface
 {
 public:
 
-	/** IModuleInterface implementation */
+	/* IModuleInterface implementation */
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
 
-	/** This function will be bound to Command (by default it will bring up the plugin window) */
+	/* This function will be bound to Command (by default it will bring up the plugin window) */
 	void PluginButtonClicked();
 
-	/** Steam Workshop URL format for community files */
+	/* Steam Workshop URL format for community files */
 	static constexpr const char* CommunityFileUrl = "steam://url/CommunityFilePage/";
 
 private:
 
-	/** Tick function for periodic updates */
+	/* Tick function for periodic updates */
 	bool Tick(float DeltaTime);
 
-	/** UI related functions */
+	/* UI related functions */
 	void AddToolbarExtension(FToolBarBuilder& Builder);
 	void AddMenuExtension(FMenuBuilder& Builder);
 	TSharedRef<class SDockTab> OnSpawnPluginTab(const class FSpawnTabArgs& SpawnTabArgs);
 
-	/** UI command list */
+	/* UI command list */
 	TSharedPtr<class FUICommandList> PluginCommands;
 
-	/** Delegates for ticking */
+	/* Delegates for ticking */
 	FTickerDelegate TickDelegate;
 
 #if ENGINE_MAJOR_VERSION >= 5
@@ -89,7 +89,7 @@ private:
 	FDelegateHandle TickDelegateHandle;
 #endif
 
-	/** Steam Workshop Callbacks */
+	/* Steam Workshop Callbacks */
 	CCallResult<FWorkshopUploaderModule, CreateItemResult_t> m_CreateItemResult;
 	CCallResult<FWorkshopUploaderModule, SubmitItemUpdateResult_t> m_SubmitItemUpdateResult;
 

@@ -668,15 +668,13 @@ struct FPlatformFolderVisitor : public IPlatformFile::FDirectoryVisitor
 		{
 			FString FolderName = FPaths::GetCleanFilename(FilenameOrDirectory);
 
-			if (FolderName.StartsWith(TEXT("Windows")) ||
-				FolderName.StartsWith(TEXT("Mac")) ||
-				FolderName.StartsWith(TEXT("Linux")))
+			if (FolderName.StartsWith(TEXT("Windows")) || FolderName.StartsWith(TEXT("Mac")) || FolderName.StartsWith(TEXT("Linux")))
 			{
 				bFoundValidFolder = true;
-				return false; // stop iterating
+				return false;
 			}
 		}
-		return true; // continue iterating
+		return true;
 	}
 };
 
@@ -700,9 +698,7 @@ void FWorkshopUploaderModule::FindPackagedPlugins()
 				IFileManager::Get().IterateDirectory(*StagedBuildsPath, Visitor);
 
 				if (Visitor.bFoundValidFolder)
-				{
 					SelectedModOptions.Add(MakeShared<FString>(Plugin->GetName()));
-				}
 			}
 		}
 	}
@@ -747,7 +743,7 @@ FReply FWorkshopUploaderModule::OnPublishNewModClicked()
 		MissingFields.TrimEndInline();
 		MissingFields.RemoveFromEnd(TEXT(","), ESearchCase::IgnoreCase);
 
-		FMessageDialog::Open(EAppMsgType::Ok, FText::FromString(FString::Printf(TEXT("These fields must be filled in to publish: %s"), *MissingFields)));
+		FMessageDialog::Open(EAppMsgType::Ok, FText::FromString(FString::Printf(TEXT("These fields must be filled in order to publish: %s"), *MissingFields)));
 
 		return FReply::Handled();
 	}
@@ -799,7 +795,7 @@ FReply FWorkshopUploaderModule::OnPublishUpdateModClicked()
 		MissingFields.TrimEndInline();
 		MissingFields.RemoveFromEnd(TEXT(","), ESearchCase::IgnoreCase);
 
-		FMessageDialog::Open(EAppMsgType::Ok, FText::FromString(FString::Printf(TEXT("These fields must be filled in to publish: %s"), *MissingFields)));
+		FMessageDialog::Open(EAppMsgType::Ok, FText::FromString(FString::Printf(TEXT("These fields must be filled in order to publish: %s"), *MissingFields)));
 
 		return FReply::Handled();
 	}
@@ -1069,35 +1065,35 @@ FString FWorkshopUploaderModule::GetCreateItemResultString(EResult result)
 {
 	switch (result)
 	{
-	case k_EResultOK:
-		return TEXT("k_EResultOK - The operation completed successfully.");
-	case k_EResultInsufficientPrivilege:
-		return TEXT("k_EResultInsufficientPrivilege - You are restricted from uploading due to a hub ban, account lock, or community ban. Contact Steam Support.");
-	case k_EResultBanned:
-		return TEXT("k_EResultBanned - You cannot upload to this hub due to an active VAC or Game ban.");
-	case k_EResultTimeout:
-		return TEXT("k_EResultTimeout - The operation timed out. Please retry the upload.");
-	case k_EResultNotLoggedOn:
-		return TEXT("k_EResultNotLoggedOn - You are not logged into Steam.");
-	case k_EResultServiceUnavailable:
-		return TEXT("k_EResultServiceUnavailable - The Steam Workshop server is currently unavailable. Try again later.");
-	case k_EResultInvalidParam:
-		return TEXT("k_EResultInvalidParam - One or more submission fields are invalid.");
-	case k_EResultAccessDenied:
-		return TEXT("k_EResultAccessDenied - Access denied when saving title and description.");
-	case k_EResultLimitExceeded:
-		return TEXT("k_EResultLimitExceeded - Steam Cloud quota exceeded. Remove items and try again.");
-	case k_EResultFileNotFound:
-		return TEXT("k_EResultFileNotFound - Uploaded file not found.");
-	case k_EResultDuplicateRequest:
-		return TEXT("k_EResultDuplicateRequest - The file was already uploaded successfully. Refresh to see the item.");
-	case k_EResultDuplicateName:
-		return TEXT("k_EResultDuplicateName - You already have a Workshop item with this name.");
-	case k_EResultServiceReadOnly:
-		return TEXT("k_EResultServiceReadOnly - You cannot upload due to a recent password/email change. This restriction usually expires in 5 days.");
+		case k_EResultOK:
+			return TEXT("k_EResultOK - The operation completed successfully.");
+		case k_EResultInsufficientPrivilege:
+			return TEXT("k_EResultInsufficientPrivilege - You are restricted from uploading due to a hub ban, account lock, or community ban. Contact Steam Support.");
+		case k_EResultBanned:
+			return TEXT("k_EResultBanned - You cannot upload to this hub due to an active VAC or Game ban.");
+		case k_EResultTimeout:
+			return TEXT("k_EResultTimeout - The operation timed out. Please retry the upload.");
+		case k_EResultNotLoggedOn:
+			return TEXT("k_EResultNotLoggedOn - You are not logged into Steam.");
+		case k_EResultServiceUnavailable:
+			return TEXT("k_EResultServiceUnavailable - The Steam Workshop server is currently unavailable. Try again later.");
+		case k_EResultInvalidParam:
+			return TEXT("k_EResultInvalidParam - One or more submission fields are invalid.");
+		case k_EResultAccessDenied:
+			return TEXT("k_EResultAccessDenied - Access denied when saving title and description.");
+		case k_EResultLimitExceeded:
+			return TEXT("k_EResultLimitExceeded - Steam Cloud quota exceeded. Remove items and try again.");
+		case k_EResultFileNotFound:
+			return TEXT("k_EResultFileNotFound - Uploaded file not found.");
+		case k_EResultDuplicateRequest:
+			return TEXT("k_EResultDuplicateRequest - The file was already uploaded successfully. Refresh to see the item.");
+		case k_EResultDuplicateName:
+			return TEXT("k_EResultDuplicateName - You already have a Workshop item with this name.");
+		case k_EResultServiceReadOnly:
+			return TEXT("k_EResultServiceReadOnly - You cannot upload due to a recent password/email change. This restriction usually expires in 5 days.");
 
-	default:
-		return TEXT("An unhandled error occurred.");
+		default:
+			return TEXT("An unhandled error occurred.");
 	}
 }
 
@@ -1105,23 +1101,23 @@ FString FWorkshopUploaderModule::GetSubmitItemUpdateResultString(EResult result)
 {
 	switch (result)
 	{
-	case k_EResultOK:
-		return TEXT("k_EResultOK - The operation completed successfully.");
-	case k_EResultFail:
-		return TEXT("k_EResultFail - Generic failure.");
-	case k_EResultInvalidParam:
-		return TEXT("k_EResultInvalidParam - Either the app ID is invalid or doesn't match the item's consumer app ID, or ISteamUGC is not enabled for the app ID on the Steam Workshop Configuration page. The preview file may also be smaller than 16 bytes.");
-	case k_EResultAccessDenied:
-		return TEXT("k_EResultAccessDenied - The user doesn't own a license for the provided app ID.");
-	case k_EResultFileNotFound:
-		return TEXT("k_EResultFileNotFound - Failed to get the workshop info or read the preview file. The provided content folder may also be invalid.");
-	case k_EResultLockingFailed:
-		return TEXT("k_EResultLockingFailed - Failed to acquire UGC lock.");
-	case k_EResultLimitExceeded:
-		return TEXT("k_EResultLimitExceeded - The preview image is too large (must be under 1 MB) or the user has exceeded their Steam Cloud quota.");
+		case k_EResultOK:
+			return TEXT("k_EResultOK - The operation completed successfully.");
+		case k_EResultFail:
+			return TEXT("k_EResultFail - Generic failure.");
+		case k_EResultInvalidParam:
+			return TEXT("k_EResultInvalidParam - Either the app ID is invalid or doesn't match the item's consumer app ID, or ISteamUGC is not enabled for the app ID on the Steam Workshop Configuration page. The preview file may also be smaller than 16 bytes.");
+		case k_EResultAccessDenied:
+			return TEXT("k_EResultAccessDenied - The user doesn't own a license for the provided app ID.");
+		case k_EResultFileNotFound:
+			return TEXT("k_EResultFileNotFound - Failed to get the workshop info or read the preview file. The provided content folder may also be invalid.");
+		case k_EResultLockingFailed:
+			return TEXT("k_EResultLockingFailed - Failed to acquire UGC lock.");
+		case k_EResultLimitExceeded:
+			return TEXT("k_EResultLimitExceeded - The preview image is too large (must be under 1 MB) or the user has exceeded their Steam Cloud quota.");
 
-	default:
-		return TEXT("An unhandled error occurred.");
+		default:
+			return TEXT("An unhandled error occurred.");
 	}
 }
 
@@ -1129,112 +1125,113 @@ FString FWorkshopUploaderModule::GetSteamResultString(EResult result)
 {
 	switch (result)
 	{
-	case k_EResultOK: return "k_EResultOK";
-	case k_EResultFail: return "k_EResultFail";
-	case k_EResultNoConnection: return "k_EResultNoConnection";
-	case k_EResultInvalidPassword: return "k_EResultInvalidPassword";
-	case k_EResultLoggedInElsewhere: return "k_EResultLoggedInElsewhere";
-	case k_EResultInvalidProtocolVer: return "k_EResultInvalidProtocolVer";
-	case k_EResultInvalidParam: return "k_EResultInvalidParam";
-	case k_EResultFileNotFound: return "k_EResultFileNotFound";
-	case k_EResultBusy: return "k_EResultBusy";
-	case k_EResultInvalidState: return "k_EResultInvalidState";
-	case k_EResultInvalidName: return "k_EResultInvalidName";
-	case k_EResultInvalidEmail: return "k_EResultInvalidEmail";
-	case k_EResultDuplicateName: return "k_EResultDuplicateName";
-	case k_EResultAccessDenied: return "k_EResultAccessDenied";
-	case k_EResultTimeout: return "k_EResultTimeout";
-	case k_EResultBanned: return "k_EResultBanned";
-	case k_EResultAccountNotFound: return "k_EResultAccountNotFound";
-	case k_EResultInvalidSteamID: return "k_EResultInvalidSteamID";
-	case k_EResultServiceUnavailable: return "k_EResultServiceUnavailable";
-	case k_EResultNotLoggedOn: return "k_EResultNotLoggedOn";
-	case k_EResultPending: return "k_EResultPending";
-	case k_EResultEncryptionFailure: return "k_EResultEncryptionFailure";
-	case k_EResultInsufficientPrivilege: return "k_EResultInsufficientPrivilege";
-	case k_EResultLimitExceeded: return "k_EResultLimitExceeded";
-	case k_EResultRevoked: return "k_EResultRevoked";
-	case k_EResultExpired: return "k_EResultExpired";
-	case k_EResultAlreadyRedeemed: return "k_EResultAlreadyRedeemed";
-	case k_EResultDuplicateRequest: return "k_EResultDuplicateRequest";
-	case k_EResultAlreadyOwned: return "k_EResultAlreadyOwned";
-	case k_EResultIPNotFound: return "k_EResultIPNotFound";
-	case k_EResultPersistFailed: return "k_EResultPersistFailed";
-	case k_EResultLockingFailed: return "k_EResultLockingFailed";
-	case k_EResultLogonSessionReplaced: return "k_EResultLogonSessionReplaced";
-	case k_EResultConnectFailed: return "k_EResultConnectFailed";
-	case k_EResultHandshakeFailed: return "k_EResultHandshakeFailed";
-	case k_EResultIOFailure: return "k_EResultIOFailure";
-	case k_EResultRemoteDisconnect: return "k_EResultRemoteDisconnect";
-	case k_EResultShoppingCartNotFound: return "k_EResultShoppingCartNotFound";
-	case k_EResultBlocked: return "k_EResultBlocked";
-	case k_EResultIgnored: return "k_EResultIgnored";
-	case k_EResultNoMatch: return "k_EResultNoMatch";
-	case k_EResultAccountDisabled: return "k_EResultAccountDisabled";
-	case k_EResultServiceReadOnly: return "k_EResultServiceReadOnly";
-	case k_EResultAccountNotFeatured: return "k_EResultAccountNotFeatured";
-	case k_EResultAdministratorOK: return "k_EResultAdministratorOK";
-	case k_EResultContentVersion: return "k_EResultContentVersion";
-	case k_EResultTryAnotherCM: return "k_EResultTryAnotherCM";
-	case k_EResultPasswordRequiredToKickSession: return "k_EResultPasswordRequiredToKickSession";
-	case k_EResultAlreadyLoggedInElsewhere: return "k_EResultAlreadyLoggedInElsewhere";
-	case k_EResultSuspended: return "k_EResultSuspended";
-	case k_EResultCancelled: return "k_EResultCancelled";
-	case k_EResultDataCorruption: return "k_EResultDataCorruption";
-	case k_EResultDiskFull: return "k_EResultDiskFull";
-	case k_EResultRemoteCallFailed: return "k_EResultRemoteCallFailed";
-	case k_EResultPasswordUnset: return "k_EResultPasswordUnset";
-	case k_EResultExternalAccountUnlinked: return "k_EResultExternalAccountUnlinked";
-	case k_EResultPSNTicketInvalid: return "k_EResultPSNTicketInvalid";
-	case k_EResultExternalAccountAlreadyLinked: return "k_EResultExternalAccountAlreadyLinked";
-	case k_EResultRemoteFileConflict: return "k_EResultRemoteFileConflict";
-	case k_EResultIllegalPassword: return "k_EResultIllegalPassword";
-	case k_EResultSameAsPreviousValue: return "k_EResultSameAsPreviousValue";
-	case k_EResultAccountLogonDenied: return "k_EResultAccountLogonDenied";
-	case k_EResultCannotUseOldPassword: return "k_EResultCannotUseOldPassword";
-	case k_EResultInvalidLoginAuthCode: return "k_EResultInvalidLoginAuthCode";
-	case k_EResultAccountLogonDeniedNoMail: return "k_EResultAccountLogonDeniedNoMail";
-	case k_EResultHardwareNotCapableOfIPT: return "k_EResultHardwareNotCapableOfIPT";
-	case k_EResultIPTInitError: return "k_EResultIPTInitError";
-	case k_EResultParentalControlRestricted: return "k_EResultParentalControlRestricted";
-	case k_EResultFacebookQueryError: return "k_EResultFacebookQueryError";
-	case k_EResultExpiredLoginAuthCode: return "k_EResultExpiredLoginAuthCode";
-	case k_EResultIPLoginRestrictionFailed: return "k_EResultIPLoginRestrictionFailed";
-	case k_EResultAccountLockedDown: return "k_EResultAccountLockedDown";
-	case k_EResultAccountLogonDeniedVerifiedEmailRequired: return "k_EResultAccountLogonDeniedVerifiedEmailRequired";
-	case k_EResultNoMatchingURL: return "k_EResultNoMatchingURL";
-	case k_EResultBadResponse: return "k_EResultBadResponse";
-	case k_EResultRequirePasswordReEntry: return "k_EResultRequirePasswordReEntry";
-	case k_EResultValueOutOfRange: return "k_EResultValueOutOfRange";
-	case k_EResultUnexpectedError: return "k_EResultUnexpectedError";
-	case k_EResultDisabled: return "k_EResultDisabled";
-	case k_EResultInvalidCEGSubmission: return "k_EResultInvalidCEGSubmission";
-	case k_EResultRestrictedDevice: return "k_EResultRestrictedDevice";
-	case k_EResultRegionLocked: return "k_EResultRegionLocked";
-	case k_EResultRateLimitExceeded: return "k_EResultRateLimitExceeded";
-	case k_EResultAccountLoginDeniedNeedTwoFactor: return "k_EResultAccountLoginDeniedNeedTwoFactor";
-	case k_EResultItemDeleted: return "k_EResultItemDeleted";
-	case k_EResultAccountLoginDeniedThrottle: return "k_EResultAccountLoginDeniedThrottle";
-	case k_EResultTwoFactorCodeMismatch: return "k_EResultTwoFactorCodeMismatch";
-	case k_EResultTwoFactorActivationCodeMismatch: return "k_EResultTwoFactorActivationCodeMismatch";
-	case k_EResultAccountAssociatedToMultiplePartners: return "k_EResultAccountAssociatedToMultiplePartners";
-	case k_EResultNotModified: return "k_EResultNotModified";
-	case k_EResultNoMobileDevice: return "k_EResultNoMobileDevice";
-	case k_EResultTimeNotSynced: return "k_EResultTimeNotSynced";
-	case k_EResultSmsCodeFailed: return "k_EResultSmsCodeFailed";
-	case k_EResultAccountLimitExceeded: return "k_EResultAccountLimitExceeded";
-	case k_EResultAccountActivityLimitExceeded: return "k_EResultAccountActivityLimitExceeded";
-	case k_EResultPhoneActivityLimitExceeded: return "k_EResultPhoneActivityLimitExceeded";
-	case k_EResultRefundToWallet: return "k_EResultRefundToWallet";
-	case k_EResultEmailSendFailure: return "k_EResultEmailSendFailure";
-	case k_EResultNotSettled: return "k_EResultNotSettled";
-	case k_EResultNeedCaptcha: return "k_EResultNeedCaptcha";
-	case k_EResultGSLTDenied: return "k_EResultGSLTDenied";
-	case k_EResultGSOwnerDenied: return "k_EResultGSOwnerDenied";
-	case k_EResultInvalidItemType: return "k_EResultInvalidItemType";
-	case k_EResultIPBanned: return "k_EResultIPBanned";
-	case k_EResultGSLTExpired: return "k_EResultGSLTExpired";
-	default: return "Unknown Result";
+		case k_EResultOK: return "k_EResultOK";
+		case k_EResultFail: return "k_EResultFail";
+		case k_EResultNoConnection: return "k_EResultNoConnection";
+		case k_EResultInvalidPassword: return "k_EResultInvalidPassword";
+		case k_EResultLoggedInElsewhere: return "k_EResultLoggedInElsewhere";
+		case k_EResultInvalidProtocolVer: return "k_EResultInvalidProtocolVer";
+		case k_EResultInvalidParam: return "k_EResultInvalidParam";
+		case k_EResultFileNotFound: return "k_EResultFileNotFound";
+		case k_EResultBusy: return "k_EResultBusy";
+		case k_EResultInvalidState: return "k_EResultInvalidState";
+		case k_EResultInvalidName: return "k_EResultInvalidName";
+		case k_EResultInvalidEmail: return "k_EResultInvalidEmail";
+		case k_EResultDuplicateName: return "k_EResultDuplicateName";
+		case k_EResultAccessDenied: return "k_EResultAccessDenied";
+		case k_EResultTimeout: return "k_EResultTimeout";
+		case k_EResultBanned: return "k_EResultBanned";
+		case k_EResultAccountNotFound: return "k_EResultAccountNotFound";
+		case k_EResultInvalidSteamID: return "k_EResultInvalidSteamID";
+		case k_EResultServiceUnavailable: return "k_EResultServiceUnavailable";
+		case k_EResultNotLoggedOn: return "k_EResultNotLoggedOn";
+		case k_EResultPending: return "k_EResultPending";
+		case k_EResultEncryptionFailure: return "k_EResultEncryptionFailure";
+		case k_EResultInsufficientPrivilege: return "k_EResultInsufficientPrivilege";
+		case k_EResultLimitExceeded: return "k_EResultLimitExceeded";
+		case k_EResultRevoked: return "k_EResultRevoked";
+		case k_EResultExpired: return "k_EResultExpired";
+		case k_EResultAlreadyRedeemed: return "k_EResultAlreadyRedeemed";
+		case k_EResultDuplicateRequest: return "k_EResultDuplicateRequest";
+		case k_EResultAlreadyOwned: return "k_EResultAlreadyOwned";
+		case k_EResultIPNotFound: return "k_EResultIPNotFound";
+		case k_EResultPersistFailed: return "k_EResultPersistFailed";
+		case k_EResultLockingFailed: return "k_EResultLockingFailed";
+		case k_EResultLogonSessionReplaced: return "k_EResultLogonSessionReplaced";
+		case k_EResultConnectFailed: return "k_EResultConnectFailed";
+		case k_EResultHandshakeFailed: return "k_EResultHandshakeFailed";
+		case k_EResultIOFailure: return "k_EResultIOFailure";
+		case k_EResultRemoteDisconnect: return "k_EResultRemoteDisconnect";
+		case k_EResultShoppingCartNotFound: return "k_EResultShoppingCartNotFound";
+		case k_EResultBlocked: return "k_EResultBlocked";
+		case k_EResultIgnored: return "k_EResultIgnored";
+		case k_EResultNoMatch: return "k_EResultNoMatch";
+		case k_EResultAccountDisabled: return "k_EResultAccountDisabled";
+		case k_EResultServiceReadOnly: return "k_EResultServiceReadOnly";
+		case k_EResultAccountNotFeatured: return "k_EResultAccountNotFeatured";
+		case k_EResultAdministratorOK: return "k_EResultAdministratorOK";
+		case k_EResultContentVersion: return "k_EResultContentVersion";
+		case k_EResultTryAnotherCM: return "k_EResultTryAnotherCM";
+		case k_EResultPasswordRequiredToKickSession: return "k_EResultPasswordRequiredToKickSession";
+		case k_EResultAlreadyLoggedInElsewhere: return "k_EResultAlreadyLoggedInElsewhere";
+		case k_EResultSuspended: return "k_EResultSuspended";
+		case k_EResultCancelled: return "k_EResultCancelled";
+		case k_EResultDataCorruption: return "k_EResultDataCorruption";
+		case k_EResultDiskFull: return "k_EResultDiskFull";
+		case k_EResultRemoteCallFailed: return "k_EResultRemoteCallFailed";
+		case k_EResultPasswordUnset: return "k_EResultPasswordUnset";
+		case k_EResultExternalAccountUnlinked: return "k_EResultExternalAccountUnlinked";
+		case k_EResultPSNTicketInvalid: return "k_EResultPSNTicketInvalid";
+		case k_EResultExternalAccountAlreadyLinked: return "k_EResultExternalAccountAlreadyLinked";
+		case k_EResultRemoteFileConflict: return "k_EResultRemoteFileConflict";
+		case k_EResultIllegalPassword: return "k_EResultIllegalPassword";
+		case k_EResultSameAsPreviousValue: return "k_EResultSameAsPreviousValue";
+		case k_EResultAccountLogonDenied: return "k_EResultAccountLogonDenied";
+		case k_EResultCannotUseOldPassword: return "k_EResultCannotUseOldPassword";
+		case k_EResultInvalidLoginAuthCode: return "k_EResultInvalidLoginAuthCode";
+		case k_EResultAccountLogonDeniedNoMail: return "k_EResultAccountLogonDeniedNoMail";
+		case k_EResultHardwareNotCapableOfIPT: return "k_EResultHardwareNotCapableOfIPT";
+		case k_EResultIPTInitError: return "k_EResultIPTInitError";
+		case k_EResultParentalControlRestricted: return "k_EResultParentalControlRestricted";
+		case k_EResultFacebookQueryError: return "k_EResultFacebookQueryError";
+		case k_EResultExpiredLoginAuthCode: return "k_EResultExpiredLoginAuthCode";
+		case k_EResultIPLoginRestrictionFailed: return "k_EResultIPLoginRestrictionFailed";
+		case k_EResultAccountLockedDown: return "k_EResultAccountLockedDown";
+		case k_EResultAccountLogonDeniedVerifiedEmailRequired: return "k_EResultAccountLogonDeniedVerifiedEmailRequired";
+		case k_EResultNoMatchingURL: return "k_EResultNoMatchingURL";
+		case k_EResultBadResponse: return "k_EResultBadResponse";
+		case k_EResultRequirePasswordReEntry: return "k_EResultRequirePasswordReEntry";
+		case k_EResultValueOutOfRange: return "k_EResultValueOutOfRange";
+		case k_EResultUnexpectedError: return "k_EResultUnexpectedError";
+		case k_EResultDisabled: return "k_EResultDisabled";
+		case k_EResultInvalidCEGSubmission: return "k_EResultInvalidCEGSubmission";
+		case k_EResultRestrictedDevice: return "k_EResultRestrictedDevice";
+		case k_EResultRegionLocked: return "k_EResultRegionLocked";
+		case k_EResultRateLimitExceeded: return "k_EResultRateLimitExceeded";
+		case k_EResultAccountLoginDeniedNeedTwoFactor: return "k_EResultAccountLoginDeniedNeedTwoFactor";
+		case k_EResultItemDeleted: return "k_EResultItemDeleted";
+		case k_EResultAccountLoginDeniedThrottle: return "k_EResultAccountLoginDeniedThrottle";
+		case k_EResultTwoFactorCodeMismatch: return "k_EResultTwoFactorCodeMismatch";
+		case k_EResultTwoFactorActivationCodeMismatch: return "k_EResultTwoFactorActivationCodeMismatch";
+		case k_EResultAccountAssociatedToMultiplePartners: return "k_EResultAccountAssociatedToMultiplePartners";
+		case k_EResultNotModified: return "k_EResultNotModified";
+		case k_EResultNoMobileDevice: return "k_EResultNoMobileDevice";
+		case k_EResultTimeNotSynced: return "k_EResultTimeNotSynced";
+		case k_EResultSmsCodeFailed: return "k_EResultSmsCodeFailed";
+		case k_EResultAccountLimitExceeded: return "k_EResultAccountLimitExceeded";
+		case k_EResultAccountActivityLimitExceeded: return "k_EResultAccountActivityLimitExceeded";
+		case k_EResultPhoneActivityLimitExceeded: return "k_EResultPhoneActivityLimitExceeded";
+		case k_EResultRefundToWallet: return "k_EResultRefundToWallet";
+		case k_EResultEmailSendFailure: return "k_EResultEmailSendFailure";
+		case k_EResultNotSettled: return "k_EResultNotSettled";
+		case k_EResultNeedCaptcha: return "k_EResultNeedCaptcha";
+		case k_EResultGSLTDenied: return "k_EResultGSLTDenied";
+		case k_EResultGSOwnerDenied: return "k_EResultGSOwnerDenied";
+		case k_EResultInvalidItemType: return "k_EResultInvalidItemType";
+		case k_EResultIPBanned: return "k_EResultIPBanned";
+		case k_EResultGSLTExpired: return "k_EResultGSLTExpired";
+		
+		default: return "Unknown Result";
 	}
 }
 
