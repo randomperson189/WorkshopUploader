@@ -34,7 +34,7 @@ By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialis
 		}
 #endif*/
 ```
-9. Set your solution configuration to **Development Editor** and **Win64** then build your project<br/><br/>
+9. Set your solution configuration to **Development Editor** and **Win64** then build your game project<br/><br/>
 
 ### Setting up Workshop item tags in plugin
 
@@ -47,7 +47,7 @@ TArray<FString> DefaultTags = {
 	TEXT("Mod"),
 };
 ```
-4. Build your project in **Development Editor** and **Win64** configuration <br/><br/>
+4. Build your game project in **Development Editor** and **Win64** configuration <br/><br/>
 
 ### Setting up OnlineSubsystemSteam in config files (skip if already done)
 
@@ -76,6 +76,7 @@ NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSt
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 
 ```
+
 
 
 
