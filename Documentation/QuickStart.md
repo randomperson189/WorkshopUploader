@@ -20,7 +20,7 @@ To follow along with this guide, you’ll need the following:
 By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialise if you're in editor, but we need to have it enabled in editor so that the **WorkshopUploader** plugin can use the **Steam API** for uploaing. Fortunately there's a solution for that
 
 1. Navigate to your base **Unreal Engine** directory (for example: **C:\Program Files\Epic Games\UE_4.27** depending on what engine version your project is using)
-2. Navigate to **Engine\Plugins\Online**
+2. Within the base **Unreal Engine** directory, navigate to **Engine\Plugins\Online**
 3. Copy the folder called **OnlineSubsystemSteam** and paste it into your unreal project's **Plugins** folder
 4. Navigate to your project directory and right click your .uproject file and click **Generate Visual Studio project files**
 5. Open your project's .sln file in **Visual Studio**
@@ -76,6 +76,7 @@ NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSt
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 
 ```
+
 
 
 
