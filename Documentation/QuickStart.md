@@ -13,7 +13,7 @@ To follow along with this guide, you’ll need the following:
 1. Download **WorkshopUploader** as zip from the github page
 2. Open the zip file and extract the **WorkshopUploader-main** folder into your unreal project's **Plugins** folder (if a **Plugins** folder doesn't exist then create one)
 3. In the **Plugins** folder, rename **WorkshopUploader-main** to **WorkshopUploader**
-4. Download my custom fork of **SimpleUGC** as zip from the github page shown in prerequisites section
+4. Download the custom fork of **SimpleUGC** as zip from the github page shown in prerequisites section
 5. Open the zip file and navigate to **UGCExample\Plugins** and extract **SimpleUGC** into your unreal project's **Plugins** folder<br/><br/>
 
 ### Duplicating and modifying OnlineSubsystemSteam plugin to work in editor
@@ -76,6 +76,7 @@ NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSt
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 
 ```
+
 
 
 
