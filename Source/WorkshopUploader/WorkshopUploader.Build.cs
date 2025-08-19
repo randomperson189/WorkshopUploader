@@ -19,8 +19,8 @@ public class WorkshopUploader : ModuleRules
 
 
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "OnlineSubsystem", "OnlineSubsystemUtils", "Networking", "Sockets", "SlateCore", "InputCore"
-				// ... add other public dependencies that you statically link with here ...
 				,"Steamworks"
+				// ... add other public dependencies that you statically link with here ...
 			});
 
 
