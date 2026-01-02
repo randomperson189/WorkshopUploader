@@ -38,7 +38,7 @@ By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialis
 
 ### Setting up Workshop item tags in plugin
 
-1. Open your project's .sln file in **Visual Studio**
+1. Open your game project's .sln file in **Visual Studio**
 2. In the **Visual Studio** solution explorer within your game's code project, navigate to **Plugins\WorkshopUploader\Source\Public** and open **WorkshopUploader.h**
 3. Go to line 113 and set these tags to what your game's steam workshop has (add more if necessary)
 ```
@@ -76,6 +76,7 @@ NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSt
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 
 ```
+
 
 
 
