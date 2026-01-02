@@ -11,7 +11,7 @@ To follow along with this guide, you’ll need the following:
 ### Adding the plugins to your project
 
 1. Download **WorkshopUploader** as zip from the github page
-2. Open the zip file and extract the **WorkshopUploader-main** folder into your unreal project's **Plugins** folder (if a **Plugins** folder doesn't exist then create one)
+2. Open the zip file and extract the **WorkshopUploader-main** folder into your game project's **Plugins** folder (if a **Plugins** folder doesn't exist then create one)
 3. In the **Plugins** folder, rename **WorkshopUploader-main** to **WorkshopUploader**
 4. Download the custom fork of **SimpleUGC** as zip from the github page shown in prerequisites section
 5. Open the zip file and navigate to **UGCExample\Plugins** directory and extract the **SimpleUGC** folder into your unreal project's **Plugins** folder<br/><br/>
@@ -21,7 +21,7 @@ By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialis
 
 1. Navigate to your base **Unreal Engine** directory (for example: **C:\Program Files\Epic Games\UE_4.27** depending on what engine version your project is using)
 2. Within the base **Unreal Engine** directory, navigate to **Engine\Plugins\Online**
-3. Copy the folder called **OnlineSubsystemSteam** and paste it into your unreal project's **Plugins** folder
+3. Copy the folder called **OnlineSubsystemSteam** and paste it into your game project's **Plugins** folder
 4. Navigate to your project directory and right click your .uproject file and click **Generate Visual Studio project files**
 5. Open your project's .sln file in **Visual Studio**
 6. In the **Visual Studio** solution explorer within your game's code project, navigate to **Plugins\OnlineSubsystemSteam\Source\Private** and open **OnlineSubsystemSteam.cpp**
@@ -76,6 +76,7 @@ NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSt
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 
 ```
+
 
 
 
