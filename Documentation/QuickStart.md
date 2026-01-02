@@ -3,7 +3,7 @@
 To follow along with this guide, you’ll need the following: 
 - At least some surface level knowledge of how **Unreal Plugins** work and **C++**
 - An **Unreal Engine 4** or **5** Steam game with workshop enabled and configured via **Steamworks**
-- An **Unreal Engine 4** or **5** project with **C++ code**
+- An **Unreal Engine 4** or **5** game project with **C++ code**
 - This **WorkshopUploader** plugin
 - This custom fork of **SimpleUGC** plugin ([UE4 version](https://github.com/randomperson189/UGCExample/tree/release-ue4-custom) and [UE5 version](https://github.com/randomperson189/UGCExample/tree/release-ue5-custom)), requires linking **Epic Games** account to **GitHub** for access
 - **Visual Studio** (whichever version your **Unreal** version supports)<br/><br/>
@@ -19,7 +19,7 @@ To follow along with this guide, you’ll need the following:
 ### Duplicating and modifying OnlineSubsystemSteam plugin to work in editor
 By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialise if you're in editor, but we need to have it enabled in editor so that the **WorkshopUploader** plugin can use the **Steam API** for uploading. Fortunately there's a solution for that
 
-1. Navigate to your base **Unreal Engine** directory (for example: **C:\Program Files\Epic Games\UE_4.27** depending on what engine version your project is using)
+1. Navigate to your base **Unreal Engine** directory (for example: **C:\Program Files\Epic Games\UE_4.27** depending on what engine version your game project is using)
 2. Within the base **Unreal Engine** directory, navigate to **Engine\Plugins\Online**
 3. Copy the folder called **OnlineSubsystemSteam** and paste it into your game project's **Plugins** folder
 4. Navigate to your game project directory and right click your .uproject file and click **Generate Visual Studio project files**
@@ -76,6 +76,7 @@ NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSt
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 
 ```
+
 
 
 
