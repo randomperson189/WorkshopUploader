@@ -8,7 +8,7 @@ To follow along with this guide, you’ll need the following:
 - This custom fork of **SimpleUGC** plugin ([UE4 version](https://github.com/randomperson189/UGCExample/tree/release-ue4-custom) and [UE5 version](https://github.com/randomperson189/UGCExample/tree/release-ue5-custom)), requires linking **Epic Games** account to **GitHub** for access
 - **Visual Studio** (whichever version your **Unreal** version supports)<br/><br/>
 
-### Adding the plugins to your project
+### Adding the plugins to your game project
 
 1. Download **WorkshopUploader** as zip from the github page
 2. Open the zip file and extract the **WorkshopUploader-main** folder into your game project's **Plugins** folder (if a **Plugins** folder doesn't exist then create one)
@@ -23,7 +23,7 @@ By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialis
 2. Within the base **Unreal Engine** directory, navigate to **Engine\Plugins\Online**
 3. Copy the folder called **OnlineSubsystemSteam** and paste it into your game project's **Plugins** folder
 4. Navigate to your game project directory and right click your .uproject file and click **Generate Visual Studio project files**
-5. Open your project's .sln file in **Visual Studio**
+5. Open your game project's .sln file in **Visual Studio**
 6. In the **Visual Studio** solution explorer within your game's code project, navigate to **Plugins\OnlineSubsystemSteam\Source\Private** and open **OnlineSubsystemSteam.cpp**
 7. Scroll down to where it shows **#if UE_EDITOR** (around line 578) and comment this part out so that it now looks like this
 ```
@@ -51,7 +51,7 @@ TArray<FString> DefaultTags = {
 
 ### Setting up OnlineSubsystemSteam in config files (skip if already done)
 
-1. Navigate to your project's **Config** folder and open **DefaultEngine.ini**
+1. Navigate to your game project's **Config** folder and open **DefaultEngine.ini**
 2. Paste this at the top of the file and change **SteamDevAppId** from 480 (SpaceWar) to your game's appid
 ```
 [OnlineSubsystem]
@@ -76,6 +76,7 @@ NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSt
 +NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
 
 ```
+
 
 
 
