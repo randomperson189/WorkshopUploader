@@ -83,18 +83,18 @@ There are 2 methods of distributing your ModKit so that people can use it
 
 #### Method 1: Epic Games Store
 
-This is the official way of shipping your ModKit and is how games like Robo Recall and Hello Neighbor ship their ModKits.
+This is the official way of shipping your ModKit and is how games like **Robo Recall** and **Hello Neighbor** ship their ModKits.
 
 It allows you to include:
 - Your game's project files.
-- A copy of the Unreal Engine version your game uses (including a custom engine build if used).
+- A copy of the **Unreal Engine** version your game uses (including a custom engine build if used).
 
-One thing to keep in mind is that ModKits published on the Epic Games Store must be **free**, meaning anyone can download them and gain access to the project files you include. If you want access to the ModKit to be restricted to players who own your game, consider the Steam DLC approach below instead.
+One thing to keep in mind is that ModKits published on the Epic Games Store must be **free**, meaning anyone can download them and gain access to the project files you include. If you want access to the ModKit to be restricted to players who own your game, consider the **Steam DLC** approach below instead.
 
 #### Method 2: Steam DLC
 
-For this method, you distribute your game's project files as **free Steam DLC** and then provide instructions for downloading the correct version of Unreal Engine the game uses from Epic Games Launcher (needed to open the project), or if you have a custom engine build, then they will have to link their Epic Games account to GitHub and download your precompiled fork.
+For this method, you distribute your game's project files as **free Steam DLC** and then provide instructions for downloading the correct version of **Unreal Engine** the game uses from the **Epic Games Launcher** (needed to open the project), or if you have a custom engine build, then they will have to link their **Epic Games Account** to **GitHub** and download your precompiled fork.
 
-This is generally the best option if you want your ModKit to be available only to people who own your game on Steam, since Steam DLC is tied to game ownership.
+This is generally the best option if you want your ModKit to be available only to people who own your game on Steam, since **Steam DLC** is tied to game ownership.
 
 
