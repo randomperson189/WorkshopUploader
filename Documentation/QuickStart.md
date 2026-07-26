@@ -87,7 +87,7 @@ This is the official way of shipping your ModKit and is how games like Robo Reca
 
 It allows you to include:
 - Your game's project files.
-- A copy of the Unreal Engine version your game uses (including a custom engine build if applicable).
+- A copy of the Unreal Engine version your game uses (including a custom engine build if used).
 
 One thing to keep in mind is that ModKits published on the Epic Games Store must be **free**, meaning anyone can download them and gain access to the project files you include. If you want access to the ModKit to be restricted to players who own your game, consider the Steam DLC approach below instead.
 
