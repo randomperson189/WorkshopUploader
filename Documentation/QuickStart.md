@@ -93,7 +93,7 @@ One thing to keep in mind is that ModKits published on the Epic Games Store must
 
 #### Method 2: Steam DLC
 
-This is method involves distributing your game's project files as **free Steam DLC** and then provide instructions for downloading the correct version of Unreal Engine the game uses (needed to open the project), or if you have a custom engine build, then they will have to link their Epic Games account to GitHub and download your precompiled fork.
+For this method, you distribute your game's project files as **free Steam DLC** and then provide instructions for downloading the correct version of Unreal Engine the game uses from Epic Games Launcher (needed to open the project), or if you have a custom engine build, then they will have to link their Epic Games account to GitHub and download your precompiled fork.
 
 This is generally the best option if you want your ModKit to be available only to people who own your game on Steam, since Steam DLC is tied to game ownership.
 
