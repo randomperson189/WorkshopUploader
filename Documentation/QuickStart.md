@@ -6,7 +6,7 @@ To follow along with this guide, you’ll need the following:
 - An **Unreal Engine 4** or **5** game project with **C++ code**
 - This **WorkshopUploader** plugin
 - My custom fork of **SimpleUGC** plugin ([UE4 version](https://github.com/randomperson189/UGCExample/tree/release-ue4-custom) and [UE5 version](https://github.com/randomperson189/UGCExample/tree/release-ue5-custom)), requires linking **Epic Games** account to **GitHub** for access
-- **Visual Studio** (whichever version your **Unreal** version supports)<br/><br/>
+- **Visual Studio** (whichever version your **Unreal** installation supports)<br/><br/>
 
 ### Adding the plugins to your game project
 
