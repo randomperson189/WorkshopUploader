@@ -83,7 +83,7 @@ There are 2 methods of distributing your **ModKit** so that people can use it.
 
 #### Method 1: Epic Games Store
 
-This is the official way of shipping your **ModKit** and is how games like **Robo Recall** and **Hello Neighbor** ship their **ModKits**.
+This is the official way of shipping your **ModKit** and is also how games like **Robo Recall** and **Hello Neighbor** ship their **ModKits**.
 
 It allows you to include:
 - Your game's project files.
