@@ -17,7 +17,7 @@ To follow along with this guide, you’ll need the following:
 5. Open the zip file and navigate to **UGCExample\Plugins** directory and extract the **SimpleUGC** folder into your game project's **Plugins** folder<br/><br/>
 
 ### Duplicating and modifying OnlineSubsystemSteam plugin to work in editor
-By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialise if you're in editor, but we need to have it enabled in editor so that the **WorkshopUploader** plugin can use the **Steam API** for uploading. Fortunately there's a solution for that
+By default, Unreal's built-in **OnlineSubsystemSteam** plugin does not initialise if you're in editor, but we need to have it enabled in editor so that the **WorkshopUploader** plugin can use the **Steam API** for uploading. Fortunately there's a solution for that.
 
 1. Navigate to your base **Unreal Engine** directory (for example: **C:\Program Files\Epic Games\UE_4.27** depending on what engine version your game project is using)
 2. Within the base **Unreal Engine** directory, navigate to **Engine\Plugins\Online**
@@ -79,7 +79,7 @@ NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="OnlineSubsystemSt
 
 ### Distributing your ModKit
 
-There are 2 methods of distributing your ModKit so that people can use it
+There are 2 methods of distributing your ModKit so that people can use it.
 
 #### Method 1: Epic Games Store
 
